@@ -1,0 +1,13 @@
+####
+.idea/
+target/
+
+# dir
+.idea/
+target/
+drivers/*
+allure-results/
+
+# file
+*.iml
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parrallel="tests" thread-count="3" name="default suite">
+    <!-- CHROME -->
+    <test name="chrome test">
+        <parameter name="browser" value="chrome"/>
+        <packages>
+            <package name="fr.zenity.academy.*"/>
+        </packages>
+    </test>
+    <!-- FIREFOX -->
+    <test name="ff test">
+        <parameter name="browser" value="firefox"/>
+        <packages>
+            <package name="fr.zenity.academy.*"/>
+        </packages>
+    </test>
+</suite>
