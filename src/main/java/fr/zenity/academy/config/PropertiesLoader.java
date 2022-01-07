@@ -1,14 +1,12 @@
 package fr.zenity.academy.config;
 
-import fr.zenity.academy.PageObjects.Page;
+import fr.zenity.academy.pageObjects.Page;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.Objects;
 import java.util.Properties;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 
 public class PropertiesLoader {

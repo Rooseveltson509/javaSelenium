@@ -1,16 +1,17 @@
-package fr.zenity.academy.PageObjects;
+package fr.zenity.academy.pageObjects;
 
 import fr.zenity.academy.manager.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.function.Function;
 
@@ -42,7 +43,6 @@ public abstract class Page {
      */
     private static final Logger LOG = Logger.getLogger(Page.class);
 
-
     protected Page(){
 
         driver = WebDriverManager.getInstance().getDriver();
@@ -62,6 +62,14 @@ public abstract class Page {
         wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
+    }
+
+    public void clickJS(WebElement element){
+        try {
+            js.executeScript("arguments[0].click();", element);
+        } catch (Exception e) {
+            element.click();
+        }
     }
 
     public void maximize(){ driver.manage().window().maximize(); }
@@ -109,7 +117,17 @@ public abstract class Page {
             return false;
         }
     }
-
+    public String getScreenshot() {
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+        File destination = new File(path);
+        try {
+            FileUtils.copyFile(src, destination);
+        } catch (IOException e) {
+            System.out.println("Capture Failed " + e.getMessage());
+        }
+        return path;
+    }
 
 }
 

@@ -10,4 +10,4 @@ allure-results/
 
 # file
 *.iml
-
+*.log

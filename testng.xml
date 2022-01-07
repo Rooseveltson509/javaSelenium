@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parrallel="tests" thread-count="3" name="default suite">
+
+
+    <listeners>
+        <listener class-name="fr.zenity.academy.listeners.TestListener"/>
+        <listener class-name="fr.zenity.academy.listeners.AnnotationTransformer"/>
+    </listeners>
+
     <!-- CHROME -->
     <test name="chrome test">
         <parameter name="browser" value="chrome"/>
-        <packages>
+        <classes>
+            <class name="fr.zenity.academy.stepDefinitions.ExperienceStep"/>
+        </classes>
+        <!--<packages>
             <package name="fr.zenity.academy.*"/>
-        </packages>
+        </packages>-->
     </test>
     <!-- FIREFOX -->
-    <test name="ff test">
+ <!--   <test name="ff test">
         <parameter name="browser" value="firefox"/>
         <packages>
             <package name="fr.zenity.academy.*"/>
         </packages>
+        <classes>
+            <class name="fr.zenity.academy.listeners.TestAllureListener"/>
+        </classes>
     </test>
+    <listeners>
+        <listener class-name="fr.zenity.academy.listeners.TestngListener" />
+    </listeners>-->
 </suite>
