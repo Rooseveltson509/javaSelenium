@@ -34,13 +34,13 @@ public class BaseRunner extends AbstractTestNGCucumberTests {
         System.out.println("-------------------------------INIT " + browser + "  --------------------------------------------------n");
     }
 
-    /*@Attachment(value = "Screenshot", type = "image/png")
+    @Attachment(value = "Screenshot after {name}", type = "image/png")
     public byte[] takeScreenShot(String methodName) {
         return ((TakesScreenshot) this.driver).getScreenshotAs(OutputType.BYTES);
-    }*/
+    }
 
     @AfterMethod
-    public void tearDown(/*ITestResult result*/)/* throws InterruptedException*/ {
+    public void tearDown(/*ITestResult result*/) {
         //Thread.sleep(10000);
             /*if(ITestResult.FAILURE == result.getStatus()){
                 Allure.addAttachment(UUID.randomUUID().toString(), new ByteArrayInputStream(((TakesScreenshot)WebDriverManager.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES)));

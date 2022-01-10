@@ -17,8 +17,8 @@ import org.testng.TestNG;
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
         },
         monochrome = true,
-        dryRun = false,
-        tags = ("@Experience")
+        dryRun = false
+        //tags = ("@subscription")
 )
 public class TestRunner extends BaseRunner{
         /*static TestNG testNg;
@@ -31,7 +31,7 @@ public class TestRunner extends BaseRunner{
                 testNg.setTestClasses(new Class[] {Experience.class});
                 testNg.addListener(ext);
                 testNg.run();
-
+mvn test -Dcucumber.options="src/test/resources/features/experience.feature" -Dcucumber.options="--tags @Subscription"
 
         }*/
 }

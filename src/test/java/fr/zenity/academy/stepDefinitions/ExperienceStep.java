@@ -31,6 +31,7 @@ public class ExperienceStep implements En {
 
         And("^I create a favorites list for this I log in$", experience::clickOnwishBtn);
 
+        // experience.clickOnRecaptcha();
         When("^I log in with my \"([^\"]*)\" and \"([^\"]*)\"$", experience::logged);
 
         Then("^I create my list of favorites with \"([^\"]*)\"$", (String listName) -> {

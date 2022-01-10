@@ -5,11 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
-import org.testng.annotations.Listeners;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
@@ -151,7 +148,6 @@ public class Experience extends Page {
         DateUtil.clickGivenDay(tdList, endDate);
         Thread.sleep(5000);
         searchBtn.click();
-        //this.chooseGuest();
 
     }
 
@@ -184,30 +180,7 @@ public class Experience extends Page {
         js.executeScript("arguments[0].value='"+maxPrice+"';", btnPriceFilterPlus);
         Thread.sleep(3000);
         clickOn(btnSavedPrice);
-        //clickJS(btnSavedPrice);
-        //js.executeScript("arguments[0].click();", btnSavedPrice);
-        /*Thread.sleep(3000);
-        wait.until(ExpectedConditions.visibilityOf(btnSavedPrice));*/
-        //clickOn(btnSavedPrice);
         Thread.sleep(3000);
-
-        //String parentW = driver.getWindowHandle();
-
-        // middleWait.until(ExpectedConditions.visibilityOf(seanceNewWindow));
-        // seanceNewWindow.click();
-        // driver.switchTo();
-        //Thread.sleep(3000);
-
-        //driver.close();
-        //Thread.sleep(3000);
-        //middleWait.until(ExpectedConditions.visibilityOf(buttonSave));
-        //buttonSave.click();
-
-
-        //middleWait.until(ExpectedConditions.visibilityOf(btnImg));
-        //btnImg.click();
-        //Thread.sleep(6000);
-        //driver.switchTo().window(parentW);
     }
 
     public void clickOnwishBtn(){
@@ -216,60 +189,34 @@ public class Experience extends Page {
     }
 
     public void logged(String email, String password) throws InterruptedException {
-        //btnWishes.click();
-        Thread.sleep(3000);
         connectToEmail.click();
-        Thread.sleep(3000);
-        wait.until(ExpectedConditions.visibilityOf(emailLogin));
+        longWait.until(ExpectedConditions.visibilityOf(emailLogin));
         emailLogin.sendKeys(email);
-        Thread.sleep(5000);
-        wait.until(ExpectedConditions.visibilityOf(signinBtn));
+        longWait.until(ExpectedConditions.visibilityOf(signinBtn));
         clickOn(signinBtn);
-        Thread.sleep(3000);
-        //wait.until(ExpectedConditions.visibilityOf(emailSignupPassword));
         emailSignupPassword.sendKeys(password);
-        Thread.sleep(3000);
-        wait.until(ExpectedConditions.visibilityOf(signinBtn));
+        longWait.until(ExpectedConditions.visibilityOf(signinBtn));
         clickOn(signinBtn);
-        Thread.sleep(6000);
     }
 
+    public void clickOnRecaptcha() throws InterruptedException {
+
+        if (waitUntil(driver -> visibilityOf(recaptCha))){
+            System.out.println("captcha is displayed");
+            clickOn(recaptCha);
+            //driver.close();
+        } else {
+            System.out.println("recapcha does'nt  display..");
+        }
+        Thread.sleep(3000);
+
+    }
 
     public void createList(String listName) throws InterruptedException {
         Thread.sleep(5000);
 
         System.out.println("input name list of favorite does'nt displayed");
         clickToList(favoriteLists,"My List");
-
-       /* if(nameToList.isDisplayed()){
-            System.out.println("input name list of favorite is displayed");
-            nameToList.sendKeys(listName);
-            wait.until(ExpectedConditions.visibilityOf(btnCreate));
-            clickOn(btnCreate);
-        } else{
-            System.out.println("input name list of favorite does'nt displayed");
-            clickToList(favoriteLists,"My List");
-        }*/
-
-
-
-
-        //listExist.click();
-       /* if (waitUntil(driver -> visibilityOf(nameToList))){
-            System.out.println("input name list of favorite");
-            nameToList.sendKeys(listName);
-            wait.until(ExpectedConditions.visibilityOf(btnCreate));
-            clickOn(btnCreate);
-            *//*wait.until(ExpectedConditions.visibilityOf(btnCreateList));
-            btnCreateList.click();
-            nameToList.sendKeys(name);*//*
-        }else if(waitUntil(driver -> visibilityOf(listExist)) && Objects.equals(listExist.getText(), "My List")){
-            System.out.println("<<<<<<<<<<<<< " + listExist.getText() + " >>>>>>>>>>>>>>>>>>>>>>>>>>");
-            listExist.click();
-        }
-        else {
-            System.out.println("input does'nt display..");
-        }*/
     }
 
     //Add an item to an existing list
