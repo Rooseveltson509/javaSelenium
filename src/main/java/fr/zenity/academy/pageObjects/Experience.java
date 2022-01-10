@@ -148,6 +148,7 @@ public class Experience extends Page {
         DateUtil.clickGivenDay(tdList, endDate);
         Thread.sleep(5000);
         searchBtn.click();
+        //this.chooseGuest();
 
     }
 
@@ -181,6 +182,7 @@ public class Experience extends Page {
         Thread.sleep(3000);
         clickOn(btnSavedPrice);
         Thread.sleep(3000);
+
     }
 
     public void clickOnwishBtn(){
@@ -189,32 +191,28 @@ public class Experience extends Page {
     }
 
     public void logged(String email, String password) throws InterruptedException {
+        Thread.sleep(5000);
         connectToEmail.click();
+        Thread.sleep(3000);
+
         longWait.until(ExpectedConditions.visibilityOf(emailLogin));
         emailLogin.sendKeys(email);
+        Thread.sleep(3000);
+
         longWait.until(ExpectedConditions.visibilityOf(signinBtn));
         clickOn(signinBtn);
+        Thread.sleep(3000);
+
         emailSignupPassword.sendKeys(password);
         longWait.until(ExpectedConditions.visibilityOf(signinBtn));
         clickOn(signinBtn);
-    }
-
-    public void clickOnRecaptcha() throws InterruptedException {
-
-        if (waitUntil(driver -> visibilityOf(recaptCha))){
-            System.out.println("captcha is displayed");
-            clickOn(recaptCha);
-            //driver.close();
-        } else {
-            System.out.println("recapcha does'nt  display..");
-        }
         Thread.sleep(3000);
 
     }
 
+
     public void createList(String listName) throws InterruptedException {
         Thread.sleep(5000);
-
         System.out.println("input name list of favorite does'nt displayed");
         clickToList(favoriteLists,"My List");
     }
