@@ -21,17 +21,4 @@ import org.testng.TestNG;
         //tags = ("@subscription")
 )
 public class TestRunner extends BaseRunner{
-        /*static TestNG testNg;
-        public static void main(String[] args) {
-
-                ExtentReportListener ext = new ExtentReportListener();
-
-                testNg = new TestNG();
-
-                testNg.setTestClasses(new Class[] {Experience.class});
-                testNg.addListener(ext);
-                testNg.run();
-mvn test -Dcucumber.options="src/test/resources/features/experience.feature" -Dcucumber.options="--tags @Subscription"
-
-        }*/
 }

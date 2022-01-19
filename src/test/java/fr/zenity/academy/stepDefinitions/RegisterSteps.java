@@ -1,9 +1,10 @@
 package fr.zenity.academy.stepDefinitions;
 
 import fr.zenity.academy.pageObjects.RegisterPage;
-import io.cucumber.java.en.Given;
 import io.cucumber.java8.En;
 import org.openqa.selenium.WebDriver;
+
+import static org.testng.Assert.assertTrue;
 
 public class RegisterSteps implements En {
     private WebDriver driver;
@@ -52,6 +53,7 @@ public class RegisterSteps implements En {
         });
 
         Then("^he should be at the home page$", () -> {
+            assertTrue(false);
             System.out.println("he should be at the home page");
         });
 

@@ -1,18 +1,9 @@
 package fr.zenity.academy.stepDefinitions;
 
-import fr.zenity.academy.listeners.TestAllureListener;
-import fr.zenity.academy.listeners.TestListener;
 import fr.zenity.academy.pageObjects.Experience;
-import fr.zenity.academy.pageObjects.Page;
 import io.cucumber.java8.En;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Listeners;
 
-@Listeners({ TestListener.class })
-@Epic("Regression Tests")
-@Feature("Login Tests")
 public class ExperienceStep implements En {
     private WebDriver wDriver;
 
