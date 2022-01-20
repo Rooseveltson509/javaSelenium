@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parrallel="tests" thread-count="3" name="default suite">
-
-
-    <listeners>
-        <listener class-name="fr.zenity.academy.listeners.TestListener"/>
-        <listener class-name="fr.zenity.academy.listeners.AnnotationTransformer"/>
-    </listeners>
+<suite name="default suite">
 
     <!-- CHROME -->
     <test name="chrome test">
