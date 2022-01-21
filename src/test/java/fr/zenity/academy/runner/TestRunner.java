@@ -13,8 +13,8 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
         },
         monochrome = true,
-        dryRun = false
-        //tags = ("@subscription")
+        dryRun = false,
+        tags = ("@Experience")
 )
 public class TestRunner extends BaseRunner{
 }

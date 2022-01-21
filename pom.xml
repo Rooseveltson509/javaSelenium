@@ -15,21 +15,21 @@
         <allure.version>2.14.0</allure.version>
         <ashot.version>1.5.4</ashot.version>
         <allure.report.directory>target/reports</allure.report.directory>
-        <maven.compiler.source>8</maven.compiler.source>
         <aspectj.version>1.9.8.RC3</aspectj.version>
         <log4j-version>2.14.1</log4j-version>
         <extentreports-version>5.0.8</extentreports-version>
+        <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <kotlin.version>1.6.10</kotlin.version>
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- Selenium -->
         <dependency>
@@ -102,7 +102,7 @@
             <version>${sl4j.version}</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4j-version}</version>
@@ -113,7 +113,7 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j-version}</version>
-        </dependency>
+        </dependency>-->
         <!-- end log4j -->
 
         <!-- allure reporting -->
@@ -129,30 +129,30 @@
             <version>2.17.2</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>
-        </dependency>
-        <dependency>
+        </dependency>-->
+        <!--<dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.4.0</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- ashot -->
-        <dependency>
+        <!--<dependency>
             <groupId>ru.yandex.qatools.ashot</groupId>
             <artifactId>ashot</artifactId>
             <version>${ashot.version}</version>
-        </dependency>
+        </dependency>-->
         <!-- projectlombok -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
-        </dependency>
+        </dependency>-->
 
         <!--allure-cucumber-jvm -->
         <!--<dependency>
@@ -181,21 +181,32 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.8.2</version>
             <scope>test</scope>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>1.2.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
+            <!--Step 1 delete-->
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.2.0</version>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -206,12 +217,13 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         -Dcucumber.options="--plugin io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
                     </argLine>
-                    <properties>
+                    <!--step 2-->
+                    <!--<properties>
                         <property>
                             <name>listener</name>
                             <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
-                    </properties>
+                    </properties>-->
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                         <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
@@ -223,7 +235,7 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
-                <executions>
+                <!--<executions>
                     <execution>
                         <id>compile</id>
                         <phase>compile</phase>
@@ -238,16 +250,17 @@
                             <goal>test-compile</goal>
                         </goals>
                     </execution>
-                </executions>
-                <configuration>
+                </executions>-->
+                <!--<configuration>
                     <jvmTarget>1.8</jvmTarget>
-                </configuration>
+                </configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
-                <executions>
+                <!--Step 3-->
+                <!--<executions>
                     <execution>
                         <id>compile</id>
                         <phase>compile</phase>
@@ -262,25 +275,12 @@
                             <goal>testCompile</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-
-                <dependencies>
-                    <dependency>
-                        <groupId>org.junit.platform</groupId>
-                        <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.2.0</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>

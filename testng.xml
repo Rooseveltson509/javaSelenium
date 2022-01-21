@@ -6,7 +6,7 @@
     <test name="chrome test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="fr.zenity.academy.stepDefinitions.ExperienceStep"/>
+            <class name="fr.zenity.academy.runner.TestRunner"/>
         </classes>
         <!--<packages>
             <package name="fr.zenity.academy.*"/>
