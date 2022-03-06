@@ -153,6 +153,12 @@ public class Experience extends Page {
     }
 
 
+    /**
+     *
+     * @param minPrice
+     * @param maxPrice
+     * @throws InterruptedException
+     */
     public void chooseGuest(String minPrice, String maxPrice) throws InterruptedException {
         Thread.sleep(5000);
         //Assert.assertTrue(false);

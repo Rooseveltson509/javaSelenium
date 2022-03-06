@@ -2,13 +2,15 @@ package fr.zenity.academy.runner;
 
 
 //import fr.zenity.academy.listeners.ExtentReportListener;
-import fr.zenity.academy.pageObjects.Experience;
 import io.cucumber.testng.CucumberOptions;
-import org.testng.TestNG;
 
 @CucumberOptions(
-        features = "./src/test/resources/features",
-        glue = {"fr.zenity.academy.stepDefinitions", "fr/zenity/academy/pageObjects", "fr/zenity/academy/listeners"},
+        features = {
+                "./src/test/resources/features",
+                "./src/test/resources/features/ecommerce",
+                "./src/test/resources/features/C_01_DEMO",
+        },
+        glue = {"fr.zenity.academy.stepDefinitions", "fr/zenity/academy/hook"},
         plugin = {
                 "pretty",
                 "html:target/reports/html/htmlreport",

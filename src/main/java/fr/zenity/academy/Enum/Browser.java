@@ -17,7 +17,7 @@ public enum Browser {
         webDriverProperty = Objects.requireNonNull(browserType);
     }
 
-    public String getBrowserName(){ return webDriverProperty.equals("gecko") ? "firefox" : webDriverProperty; }
+    public String getBrowserName(){ return webDriverProperty.equals("chrome") ? "chrome" : webDriverProperty; }
 
     public String webDriverProp(){ return String.format("webdriver.%s.driver", webDriverProperty); }
 

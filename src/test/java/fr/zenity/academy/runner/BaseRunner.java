@@ -4,16 +4,14 @@ import fr.zenity.academy.Enum.Browser;
 import fr.zenity.academy.config.Properties;
 import fr.zenity.academy.manager.WebDriverManager;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.util.Objects;
 
+
 public class BaseRunner extends AbstractTestNGCucumberTests {
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp(@Optional String browser) {
         System.out.println("------------------------------------ Tests are starting! ---------------------------------------------n");
         WebDriverManager
@@ -22,7 +20,8 @@ public class BaseRunner extends AbstractTestNGCucumberTests {
         System.out.println("-------------------------------INIT " + browser + "  --------------------------------------------------n");
     }
 
-    @AfterMethod
+
+    @AfterSuite
     public void tearDown() {
         System.out.println("-------------------------------IN TEAR DOWN--------------------------------------------------n");
         WebDriverManager.getInstance().quit();

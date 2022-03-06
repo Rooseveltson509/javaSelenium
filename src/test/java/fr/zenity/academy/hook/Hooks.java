@@ -1,4 +1,4 @@
-package fr.zenity.academy.listeners;
+package fr.zenity.academy.hook;
 
 import fr.zenity.academy.utils.Utils;
 import io.cucumber.java.After;
