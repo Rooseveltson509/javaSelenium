@@ -2,7 +2,6 @@ package fr.zenity.academy.drivers;
 
 
 import fr.zenity.academy.Enum.Browser;
-import fr.zenity.academy.config.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

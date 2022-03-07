@@ -1,7 +1,9 @@
 package fr.zenity.academy.pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Objects;
 
@@ -27,6 +29,9 @@ public class SigninPage extends Page{
 
     @FindBy(css = "#btn_login")
     private WebElement btn_login;
+
+    @FindBy(css = "#disconnect")
+    private WebElement disconnect;
 
     @FindBy(xpath = "/html/body/div[2]/div/div/snack-bar-container/div/div/simple-snack-bar/span")
     private WebElement INVALID_CREDENTIALS;
@@ -84,6 +89,18 @@ public class SigninPage extends Page{
         } else{
             System.out.println("Nothing to report.....");
         }
+    }
+
+    public void logOut() throws InterruptedException {
+        Thread.sleep(3000);
+        try{
+            longWait.until(ExpectedConditions.visibilityOf(disconnect)).click();
+            Thread.sleep(5000);
+        } catch (Exception e){
+            System.out.println("Element not visible");
+            Assert.fail("INVALID NOT FOUND: Log out botton");
+        }
+
     }
 
 }

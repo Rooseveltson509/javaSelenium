@@ -1,6 +1,6 @@
 Feature: Choose a product
 
-  @demo
+  @pass
   Scenario Outline: As a user i want to place an order
     Given I am on the product catalog page
     And I choose a product "<product1>"

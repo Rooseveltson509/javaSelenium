@@ -42,7 +42,7 @@ public void goToAddProductPage(){
     public void addProduct(String title, String price, String description) throws InterruptedException {
 
         WebElement chooseFile = driver.findElement(By.xpath("/html/body/app-root/app-new-thing-with-upload/div/mat-card/form/input"));
-        chooseFile.sendKeys("C:\\Users\\roose\\javaSelenium\\src\\test\\resources\\data\\img\\iphoeXS.jpg");
+        //chooseFile.sendKeys("C:\\Users\\roose\\javaSelenium\\src\\test\\resources\\data\\img\\iphoeXS.jpg");
 
 
         longWaitUntil(visibilityOf(wTitle));

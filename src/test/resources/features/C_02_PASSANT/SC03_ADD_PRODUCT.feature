@@ -1,6 +1,6 @@
 Feature: As a user I want push a producte
 
-  @demo
+  @pass
   Scenario Outline: Add page
     Given I am on the add page
     When I go to the register page and I create a product with "<title>" and "<price>" and "<description>"

@@ -15,8 +15,6 @@ import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
-
 
 public abstract class Page {
 
