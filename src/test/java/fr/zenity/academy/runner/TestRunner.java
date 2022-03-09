@@ -10,6 +10,7 @@ import io.cucumber.testng.CucumberOptions;
                 "./src/test/resources/features/ecommerce",
                 "./src/test/resources/features/C_01_DEMO",
                 "./src/test/resources/features/C_02_PASSANT",
+
         },
         glue = {"fr.zenity.academy.stepDefinitions", "fr/zenity/academy/hook"},
         plugin = {
